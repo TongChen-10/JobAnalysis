@@ -1,0 +1,319 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+
+	$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/C.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of '+keyword,
+                         'width':1280,
+'legend':'none',
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.ColumnChart(document.getElementById('C'));
+          chart.draw(chartData, options);
+        }
+      });
+	$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/Java.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of '+keyword,
+			'legend':'none',
+                         'width':1280,
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.ComboChart(document.getElementById('Java'));
+          chart.draw(chartData, options);
+        }
+      });
+$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/C++.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of '+keyword,
+'legend':'none',
+                         'width':1280,
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById('C++'));
+          chart.draw(chartData, options);
+        }
+      });
+$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/C2.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of C#',
+'legend':'none',
+                         'width':1280,
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.AreaChart(document.getElementById('C2'));
+          chart.draw(chartData, options);
+        }
+      });
+$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/PHP.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of '+keyword,
+'legend':'none',
+pieHole: 0.4,
+                         'width':1280,
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById('PHP'));
+          chart.draw(chartData, options);
+        }
+      });
+$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/Python.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of '+keyword,
+'legend':'none',
+                         'width':1280,
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.ColumnChart(document.getElementById('Python'));
+          chart.draw(chartData, options);
+        }
+      });
+$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/Ruby.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of '+keyword,
+'legend':'none',
+                         'width':1280,
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.ColumnChart(document.getElementById('Ruby'));
+          chart.draw(chartData, options);
+        }
+      });
+$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/R.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of '+keyword,
+'legend':'none',
+                         'width':1280,
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.ColumnChart(document.getElementById('R'));
+          chart.draw(chartData, options);
+        }
+      });
+$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/JavaScript.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of '+keyword,
+'legend':'none',
+                         'width':1280,
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.ColumnChart(document.getElementById('JavaScript'));
+          chart.draw(chartData, options);
+        }
+      });
+$.ajax({
+        //请求方式为get
+        type:"GET",
+        //json文件位置
+        url:"top/Visual Basic.json",
+        //返回数据格式为json
+        dataType: "json",
+        //请求成功完成后要执行的方法
+        success: function(data){
+         var chartData = new google.visualization.DataTable();
+         chartData.addColumn('string', 'WorkPlace');
+         chartData.addColumn('number', 'Positions');
+         var keyword= data[0].keyword;
+          $.each(data,function(index,item){
+           var workPlace = item.workPlace;
+           var count= item.count;
+	   chartData.addRow([workPlace,count]);
+          });
+          var options = {'title':'The Top5 Cities of '+keyword,
+                         'width':1280,
+'legend':'none',
+                         'height':500};
+
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.ColumnChart(document.getElementById('Visual Basic'));
+          chart.draw(chartData, options);
+        }
+      });
+
+    }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    	<div id="C"></div>
+    	<div id="Java"></div>
+    	<div id="C++"></div>
+	<div id="C2"></div>
+	<div id="PHP"></div>
+	<div id="Ruby"></div>
+	<div id="Python"></div>
+	<div id="JavaScript"></div>
+	<div id="R"></div>
+	<div id="Visual Basic"></div>
+  </body>
+</html>
